@@ -12,9 +12,6 @@ go run main.go --help
 
 This will display the available options and commands for the application.
 
-__i.e.__: I found my new login (https://github.com/ic-n) by running `go run main.go -i=30 -c=2 -hypen=50 -opts="ic,n"`
-
-
 ### Options
 
 - `--opts` (default: "nice,cool,frog"): Comma-separated list of possible parts in the username.
@@ -28,10 +25,24 @@ Here's an example of how to use the GitHub Username Finder:
 
 ```bash
 # Generate and check 10 usernames with default options
-go run main.go
+go run main.go --opts="nice,cool,frog"
+# (V) cool-frog-cool is vacant
+# (V) frog-frog-nice is vacant
+# (V) nice-nice-nice is vacant
+# (V) cool-cool-nice is vacant
+# (V) nice-nice-cool is vacant
+# (V) nice-cool-frog is vacant
+# (V) frog-cool-nice is vacant
+# (V) cool-nice-cool is vacant
 
 # Generate and check 20 usernames with custom options
-go run main.go --iterations 20 --concats 4 --hyphen 50 --opts "nice,cool,frog"
+# i.e.: I found my new login (https://github.com/ic-n) by running
+go run main.go -i=5 -c=2 -hypen=50 -opts="ic,n"
+# (-) n-ic is busy
+# (-) nic is busy
+# (-) icn is busy
+# (V) ic-ic is vacant
+# (V) ic-n is vacant
 ```
 
 ## Command
